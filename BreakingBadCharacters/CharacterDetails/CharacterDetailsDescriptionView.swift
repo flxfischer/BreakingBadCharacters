@@ -33,18 +33,10 @@ struct CharacterDetailsDescriptionView: View {
                 Text(viewModel.appearanceString)
                 Spacer()
             }
-        }.padding()
+        }
+        .padding()
+        .background(Color("backgroundWhite"))
     }
-}
-
-struct CustomAlignment: AlignmentID {
-    static func defaultValue(in context: ViewDimensions) -> CGFloat {
-        return context[.leading]
-    }
-}
-
-extension HorizontalAlignment {
-    static let custom: HorizontalAlignment = HorizontalAlignment(CustomAlignment.self)
 }
 
 struct CharacterDetailsDescriptionView_Previews: PreviewProvider {

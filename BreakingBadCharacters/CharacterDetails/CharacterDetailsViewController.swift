@@ -106,6 +106,7 @@ class CharacterDetailsViewController: UIViewController {
             view.addSubview(hc.view)
             hc.didMove(toParent: self)
             hc.view.translatesAutoresizingMaskIntoConstraints = false
+            hc.view.backgroundColor = .clear
             
             
             NSLayoutConstraint.activate([
