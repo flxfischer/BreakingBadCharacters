@@ -10,13 +10,24 @@ import Combine
 
 class CharacterListViewController: UIViewController {
     
+    enum Section {
+        case main
+    }
+    
+    typealias DataSource = UICollectionViewDiffableDataSource<Section, Character>
+    typealias Snapshot = NSDiffableDataSourceSnapshot<Section, Character>
+    
     private var cancellables: [AnyCancellable] = []
     
     private(set) var selectedCell: CharacterListItemCell?
     
     private lazy var collectionViewLayout = CharacterListCollectionViewLayout()
     
-    private lazy var collectionViewDataSource = CharacterListDataSource()
+    private lazy var collectionViewDataSource = DataSource(collectionView: collectionView) { collectionView, indexPath, character in
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CharacterListItemCell.reuseIdentifier, for: indexPath) as? CharacterListItemCell else { fatalError() }
+        cell.character = character
+        return cell
+    }
     
     private var transitionAnimator: TransitionAnimator?
     
@@ -28,7 +39,6 @@ class CharacterListViewController: UIViewController {
     
     private lazy var collectionView: UICollectionView = {
         let cv = UICollectionView(frame: .zero, collectionViewLayout: collectionViewLayout)
-        cv.dataSource = collectionViewDataSource
         cv.delegate = self
         cv.register(CharacterListItemCell.self, forCellWithReuseIdentifier: CharacterListItemCell.reuseIdentifier)
         cv.backgroundColor = .clear
@@ -50,9 +60,16 @@ class CharacterListViewController: UIViewController {
         didSet {
             viewModel?.$state.sink(receiveValue: { state in
                 switch state {
+                case .loading:
+                    var snapshot = Snapshot()
+                    snapshot.appendSections([.main])
+                    snapshot.appendItems([])
+                    self.collectionViewDataSource.apply(snapshot, animatingDifferences: true)
                 case .loaded(let characters):
-                    self.collectionViewDataSource.characters = characters
-                    self.collectionView.reloadData()
+                    var snapshot = Snapshot()
+                    snapshot.appendSections([.main])
+                    snapshot.appendItems(characters)
+                    self.collectionViewDataSource.apply(snapshot, animatingDifferences: true)
                 default:
                     break
                 // TODO: Implement views for error and loading

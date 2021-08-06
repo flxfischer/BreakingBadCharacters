@@ -5,7 +5,7 @@
 //  Created by Felix Fischer on 06/08/2021.
 //
 
-struct Character: Codable {
+struct Character: Codable, Hashable {
     let char_id: Int
     let name: String
     let occupation: [String]

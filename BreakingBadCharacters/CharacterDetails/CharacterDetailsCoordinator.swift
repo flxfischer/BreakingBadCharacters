@@ -12,13 +12,15 @@ protocol CharacterDetailsCoordinatorProtocol {
 }
 
 class CharacterDetailsCoordinator: CharacterDetailsCoordinatorProtocol {
-    let navigationController: UINavigationController
+    private let navigationController: UINavigationController
+    private let transitioningCoordinator = TransitioningCoordinator()
     
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
     }
     
     func navigateBack() {
+        navigationController.delegate = transitioningCoordinator
         navigationController.popViewController(animated: true)
     }
 }

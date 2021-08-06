@@ -43,6 +43,10 @@ class CharacterListViewModel {
             .store(in: &cancellables)
     }
     
+    func character(for id: Int) -> Character? {
+        allCharacters.first(where: { $0.char_id == id })
+    }
+    
     func didSelectItem(at indexPath: IndexPath) {
         if case let .loaded(characters: characters) = state {
             coordinator?.showDetail(with: characters[indexPath.item])
