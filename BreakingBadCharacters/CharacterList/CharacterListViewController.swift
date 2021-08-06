@@ -21,7 +21,7 @@ class CharacterListViewController: UIViewController {
     private var transitionAnimator: TransitionAnimator?
     
     private lazy var backgroundImage: UIImageView = {
-        let iv = UIImageView(image: UIImage(named: "background"))
+        let iv = UIImageView(image: UIImage(named: "background2"))
         iv.contentMode = .scaleAspectFill
         return iv
     }()
@@ -32,6 +32,7 @@ class CharacterListViewController: UIViewController {
         cv.delegate = self
         cv.register(CharacterListItemCell.self, forCellWithReuseIdentifier: CharacterListItemCell.reuseIdentifier)
         cv.backgroundColor = .clear
+        cv.backgroundView = backgroundImage
         return cv
     }()
     
@@ -72,22 +73,16 @@ class CharacterListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.titleView = searchController.searchBar
-        navigationItem.hidesSearchBarWhenScrolling = false
-        navigationItem.rightBarButtonItem = seasonsFilterButton
+        title = "Breaking Bad"
         
-        backgroundImage.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(backgroundImage)
+        navigationItem.searchController = searchController
+        navigationItem.hidesSearchBarWhenScrolling = true
+        navigationItem.rightBarButtonItem = seasonsFilterButton
         
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(collectionView)
         
         NSLayoutConstraint.activate([
-            backgroundImage.leftAnchor.constraint(equalTo: view.leftAnchor),
-            backgroundImage.topAnchor.constraint(equalTo: view.topAnchor),
-            backgroundImage.rightAnchor.constraint(equalTo: view.rightAnchor),
-            backgroundImage.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            
             collectionView.leftAnchor.constraint(equalTo: view.leftAnchor),
             collectionView.topAnchor.constraint(equalTo: view.topAnchor),
             collectionView.rightAnchor.constraint(equalTo: view.rightAnchor),

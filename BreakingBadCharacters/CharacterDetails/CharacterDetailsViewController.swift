@@ -31,7 +31,7 @@ class CharacterDetailsViewController: UIViewController {
     }
     
     private lazy var backgroundImage: UIImageView = {
-        let iv = UIImageView(image: UIImage(named: "background"))
+        let iv = UIImageView(image: UIImage(named: "background2"))
         iv.contentMode = .scaleAspectFill
         return iv
     }()
