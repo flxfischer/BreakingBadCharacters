@@ -35,6 +35,11 @@ struct CharacterDetailsDescriptionView: View {
             }
         }
         .padding()
+        .frame(
+              maxWidth: .infinity,
+              maxHeight: .infinity,
+              alignment: .center
+            )
         .background(Color("backgroundWhite"))
     }
 }
