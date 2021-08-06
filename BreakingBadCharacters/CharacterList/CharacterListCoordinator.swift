@@ -28,6 +28,7 @@ class CharacterListCoordinator: CharacterListCoordinatorProtocol {
         vc.viewModel = viewModel
         
         navigationController.delegate = transitioningCoordinator
+        navigationController.interactivePopGestureRecognizer?.delegate = vc
         navigationController.pushViewController(vc, animated: true)
     }
     

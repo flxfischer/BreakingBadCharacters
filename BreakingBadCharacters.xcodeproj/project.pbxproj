@@ -49,6 +49,8 @@
 		BEA6337826BCE4F900E06CF5 /* CIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEA6337726BCE4F900E06CF5 /* CIImage+Extensions.swift */; };
 		BEA6337F26BCF0FB00E06CF5 /* Transition.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEA6337E26BCF0FB00E06CF5 /* Transition.swift */; };
 		BEA6338126BD0B3F00E06CF5 /* BreakingBad.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BEA6338026BD0B2300E06CF5 /* BreakingBad.ttf */; };
+		BEA6338626BD74A300E06CF5 /* MockServiceJSON.json in Resources */ = {isa = PBXBuildFile; fileRef = BEA6338526BD74A300E06CF5 /* MockServiceJSON.json */; };
+		BEA6338826BD74C000E06CF5 /* MockBreakingBadDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEA6338726BD74C000E06CF5 /* MockBreakingBadDataService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -116,6 +118,8 @@
 		BEA6337726BCE4F900E06CF5 /* CIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CIImage+Extensions.swift"; sourceTree = "<group>"; };
 		BEA6337E26BCF0FB00E06CF5 /* Transition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transition.swift; sourceTree = "<group>"; };
 		BEA6338026BD0B2300E06CF5 /* BreakingBad.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = BreakingBad.ttf; sourceTree = "<group>"; };
+		BEA6338526BD74A300E06CF5 /* MockServiceJSON.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MockServiceJSON.json; sourceTree = "<group>"; };
+		BEA6338726BD74C000E06CF5 /* MockBreakingBadDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockBreakingBadDataService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -188,6 +192,8 @@
 			children = (
 				BEA6330E26BCA7AA00E06CF5 /* BreakingBadCharactersTests.swift */,
 				BEA6331026BCA7AA00E06CF5 /* Info.plist */,
+				BEA6338526BD74A300E06CF5 /* MockServiceJSON.json */,
+				BEA6338726BD74C000E06CF5 /* MockBreakingBadDataService.swift */,
 			);
 			path = BreakingBadCharactersTests;
 			sourceTree = "<group>";
@@ -404,6 +410,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BEA6338626BD74A300E06CF5 /* MockServiceJSON.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -464,6 +471,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BEA6338826BD74C000E06CF5 /* MockBreakingBadDataService.swift in Sources */,
 				BEA6330F26BCA7AA00E06CF5 /* BreakingBadCharactersTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -554,7 +562,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -609,7 +617,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

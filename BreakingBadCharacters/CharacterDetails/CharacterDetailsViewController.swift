@@ -122,3 +122,9 @@ class CharacterDetailsViewController: UIViewController {
         navigationController?.setNavigationBarHidden(true, animated: true)
     }
 }
+
+extension CharacterDetailsViewController: UIGestureRecognizerDelegate {
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldBeRequiredToFailBy otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        true
+    }
+}
